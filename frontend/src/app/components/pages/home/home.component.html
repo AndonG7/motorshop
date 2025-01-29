@@ -1,0 +1,38 @@
+<app-search></app-search>
+<app-tags></app-tags>
+<app-not-found
+[visible]="!engines || !engines.length"
+resetLinkText="Reset Search">
+</app-not-found>
+<ul>
+  <li *ngFor="let engine of engines">
+    <a routerLink="/engine/{{engine.id}}">
+      <img [src]="engine.imageUrl" [alt]="engine.name" />
+      <div class="content">
+        <div class="name">
+          {{engine.name}}
+        </div>
+        <div class="product-item-footer">
+          <div class="mileage">
+            {{engine.mileage}} km<span> | </span>
+          </div>
+          <div class="origins">
+            <span *ngFor="let origin of engine.origins">
+              {{origin}}
+            </span>
+          </div>
+        </div>
+        <div class="tags">
+          <span>
+            {{engine.tags}}
+          </span>
+        </div>
+        <div class="price">
+          <span>
+            {{engine.price | currency:'EUR'}}
+          </span>
+        </div>
+      </div>
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="details">
+    <app-title title="Најава"></app-title>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+
+    <text-input
+    [control]="fc.email"
+    [showErrorsWhen]="isSubmitted"
+    type="email"
+    label="Е-маил">
+  </text-input>
+
+  <text-input
+  [control]="fc.password"
+  [showErrorsWhen]="isSubmitted"
+  type="password"
+  label="Лозинка">
+</text-input>
+
+    <default-button text="Најава"></default-button>
+    <div class="register">
+      Не сте регистрирани? &nbsp;
+      <a routerLink="/register" [queryParams]="{returnUrl : returnUrl}">
+        Регистрација
+      </a>
+    </div>
+    </form>
+  </div>
+</div>

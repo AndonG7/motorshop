@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="details">
+    <app-title title="Регистрација"></app-title>
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <text-input
+      [control]="fc.name"
+      [showErrorsWhen]="isSubmitted"
+      label="Име">
+    `</text-input>
+
+    <text-input
+    [control]="fc.email"
+    [showErrorsWhen]="isSubmitted"
+    label="Е-маил"
+    type="email">
+  `</text-input>
+
+
+  <text-input
+  [control]="fc.password"
+  [showErrorsWhen]="isSubmitted"
+  label="Лозинка"
+  type="password">
+`</text-input>
+
+<text-input
+[control]="fc.confirmPassword"
+[showErrorsWhen]="isSubmitted"
+label="Потврди ја лозинката"
+type="password">
+`</text-input>
+
+<text-input
+[control]="fc.address"
+[showErrorsWhen]="isSubmitted"
+label="Адреса">
+`</text-input>
+
+
+<default-button text="Поднеси"></default-button>
+
+<div class="login">
+  Веќе имате сметка? &nbsp;
+  <a routerLink="/login" [queryParams]="{returnUrl: returnUrl}">
+    Најава
+  </a>
+</div>
+
+
+    </form>
+  </div>
+</div>

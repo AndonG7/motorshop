@@ -1,0 +1,38 @@
+<app-not-found
+  [visible]="!engine"
+  notFoundMessage="Engine Not Found"
+  resetLinkText="Back To Homepage"
+>
+</app-not-found>
+<div *ngIf="engine" class="container">
+  <img [src]="engine.imageUrl" [alt]="engine.name" />
+
+  <div class="details">
+    <div class="header">
+      <span class="name">
+        {{ engine.name }}
+      </span>
+    </div>
+    <div class="under-header">
+      <div class="mileage">{{ engine.mileage }} km<span> |</span></div>
+      <div class="origins">
+        <span *ngFor="let origin of engine.origins">
+          {{ origin }}
+        </span>
+      </div>
+    </div>
+
+    <div class="tags">
+      <a *ngFor="let tag of engine.tags" routerLink="/tag/{{ tag }}">
+        {{ tag }}
+      </a>
+    </div>
+    <div class="price">
+      <span>
+        {{ engine.price | currency : "EUR" }}
+      </span>
+    </div>
+
+    <button (click)="addToCart()">Додади во кошничка</button>
+  </div>
+</div>

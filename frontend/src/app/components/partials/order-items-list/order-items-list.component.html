@@ -1,0 +1,39 @@
+<table>
+  <tr>
+    <td colspan="5">
+      <h3>Артикли:</h3>
+    </td>
+  </tr>
+  <tr *ngFor="let item of order.items">
+    <td>
+      <a routerLink="/engine/{{item.engine.id}}">
+        <img [src]="item.engine.imageUrl"/>
+      </a>
+    </td>
+    <td>
+      {{item.engine.name}}
+    </td>
+    <td>
+      {{item.engine.price | currency:'EUR'}}
+    </td>
+    <td>
+      {{item.quantity}}
+    </td>
+    <td>
+      {{item.price | currency:'EUR'}}
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3"></td>
+    <td>
+      <strong>
+        Вкупно :
+      </strong>
+    </td>
+    <td>
+      <strong>
+        {{order.totalPrice | currency:'EUR'}}
+      </strong>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,26 @@
+
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo">Мотор Шоп!</a>
+    <nav>
+      <ul>
+        <li *ngIf="!isAuth">
+          <a routerLink="/login">Најава</a>
+        </li>
+        <li *ngIf="isAuth" class="menu-container">
+          <a routerLink="/dashboard">{{user.name}}</a>
+          <div class="menu">
+            <a routerLink="/profile">Профил</a>
+            <a routerLink="/orders">Нарачки</a>
+            <a (click)="logout()">Одјава</a>
+          </div>
+        </li>
+        <li>
+          <a routerLink="/cart-page">
+            Кошничка <span *ngIf="cartQuantity">{{cartQuantity}}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
